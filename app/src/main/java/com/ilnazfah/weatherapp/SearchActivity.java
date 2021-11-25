@@ -129,7 +129,6 @@ public class SearchActivity extends AppCompatActivity {
 
         public void insert (String value) {
             db.execSQL(String.format("INSERT OR IGNORE INTO %s VALUES ('%s');", this.tableName, value));
-            //db.execSQL(String.format("INSERT OR IGNORE INTO %s VALUES ('%s');", this.tableName, value));
         }
 
         public void close () {

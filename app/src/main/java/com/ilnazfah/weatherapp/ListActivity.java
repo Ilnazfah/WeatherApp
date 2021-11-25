@@ -6,9 +6,13 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ListActivity extends AppCompatActivity {
     private SQLiteDatabase db;
@@ -18,14 +22,18 @@ public class ListActivity extends AppCompatActivity {
         db = SQLiteDatabase.openOrCreateDatabase("/data/data/com.ilnazfah.weatherapp/databases/cities.db", null);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
+        List<String> cityList = new ArrayList<>();
 
         Cursor query = db.rawQuery("SELECT * FROM cities;", null);
-        TextView textView = findViewById(R.id.textView);
-        textView.setText("");
+        ListView listView = findViewById(R.id.textView);
+
         while(query.moveToNext()){
             String name = query.getString(0);
-            textView.append(name + "\n");
+            cityList.add(name);
         }
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
+                R.layout.list_view_prop, cityList);
+        listView.setAdapter(adapter);
         query.close();
         db.close();
     }
