@@ -5,6 +5,8 @@
       <map>
         <entry key="..\:/projects/weatherapp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.21666666666666667" />
         <entry key="..\:/projects/weatherapp/app/src/main/res/layout-land/activity_main.xml" value="0.2310405643738977" />
+        <entry key="..\:/projects/weatherapp/app/src/main/res/layout/activity_add.xml" value="0.36666666666666664" />
+        <entry key="..\:/projects/weatherapp/app/src/main/res/layout/activity_list.xml" value="0.36666666666666664" />
         <entry key="..\:/projects/weatherapp/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/projects/weatherapp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.21666666666666667" />
       </map>
