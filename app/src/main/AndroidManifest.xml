@@ -15,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WeatherApp">
         <activity
+            android:name=".ResultActivity"
+            android:exported="false" />
+        <activity
             android:name=".AddActivity"
             android:exported="false" />
         <activity
