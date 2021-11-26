@@ -10,7 +10,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.ilnazfah.weatherapp.DataBaseEditor;
 import com.ilnazfah.weatherapp.GsonParser;
 import com.ilnazfah.weatherapp.R;
 import com.ilnazfah.weatherapp.model.Root;
