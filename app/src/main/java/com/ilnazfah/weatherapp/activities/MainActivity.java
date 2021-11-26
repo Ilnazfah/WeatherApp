@@ -1,4 +1,4 @@
-package com.ilnazfah.weatherapp;
+package com.ilnazfah.weatherapp.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import com.ilnazfah.weatherapp.DataBaseEditor;
+import com.ilnazfah.weatherapp.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,6 +24,14 @@ public class MainActivity extends AppCompatActivity {
         search = findViewById(R.id.search);
         list_btn = findViewById(R.id.list_btn);
         add_btn = findViewById(R.id.add_btn);
+
+        DataBaseEditor dataBaseEditor = new DataBaseEditor(getApplicationContext());
+        dataBaseEditor.createDataBase("cities.db");
+        dataBaseEditor.createTable("cities");
+        dataBaseEditor.insert("Казань");
+        dataBaseEditor.insert("Набережные челны");
+        dataBaseEditor.insert("Елабуга");
+        dataBaseEditor.close();
 
         search.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -5,7 +5,11 @@
       <map>
         <entry key="..\:/Users/Ilnaz/AppData/Local/Android/Sdk/platforms/android-31/data/res/layout/simple_list_item_1.xml" value="0.36666666666666664" />
         <entry key="..\:/projects/weatherapp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.21666666666666667" />
+        <entry key="..\:/projects/weatherapp/app/src/main/res/layout-land/activity_add.xml" value="0.31040564373897706" />
+        <entry key="..\:/projects/weatherapp/app/src/main/res/layout-land/activity_list.xml" value="0.31040564373897706" />
         <entry key="..\:/projects/weatherapp/app/src/main/res/layout-land/activity_main.xml" value="0.2310405643738977" />
+        <entry key="..\:/projects/weatherapp/app/src/main/res/layout-land/activity_result.xml" value="0.31040564373897706" />
+        <entry key="..\:/projects/weatherapp/app/src/main/res/layout-land/activity_search.xml" value="0.31040564373897706" />
         <entry key="..\:/projects/weatherapp/app/src/main/res/layout/activity_add.xml" value="0.36666666666666664" />
         <entry key="..\:/projects/weatherapp/app/src/main/res/layout/activity_list.xml" value="0.36666666666666664" />
         <entry key="..\:/projects/weatherapp/app/src/main/res/layout/activity_main.xml" value="0.25" />

@@ -5,28 +5,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context=".activities.ListActivity">
+    tools:context=".activities.ResultActivity">
 
     <TextView
         android:id="@+id/logo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50sp"
         android:fontFamily="@font/montserrat_bold"
-        android:text="Список городов"
+        android:text="@string/logo"
+        android:layout_marginTop="50sp"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="30sp" />
 
-    <ListView
-        android:id="@+id/list"
+    <TextView
+        android:id="@+id/result_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/logo"
         android:layout_marginTop="50sp"
-        android:layout_marginBottom="50sp"
         android:fontFamily="@font/montserrat_bold"
         android:textAlignment="center"
+        android:textColor="@color/textColorHint"
         android:textSize="25sp" />
 
 </RelativeLayout>

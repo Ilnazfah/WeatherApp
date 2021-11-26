@@ -1,16 +1,14 @@
-package com.ilnazfah.weatherapp;
+package com.ilnazfah.weatherapp.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.database.sqlite.SQLiteDatabase;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.ilnazfah.weatherapp.GsonParser;
+import com.ilnazfah.weatherapp.R;
 import com.ilnazfah.weatherapp.model.Root;
 
 import java.io.BufferedReader;
@@ -20,41 +18,17 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class SearchActivity extends AppCompatActivity {
-
-    private EditText user_field;
-    private Button main_btn;
-    private TextView result_info;
+public class ResultActivity extends AppCompatActivity {
+    private static TextView result_info;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search);
-        DBHelper dbHelper = new DBHelper();
-        dbHelper.createDataBase("cities.db");
-
-        user_field = findViewById(R.id.user_field);
-        main_btn = findViewById(R.id.main_btn);
+        setContentView(R.layout.activity_result);
         result_info = findViewById(R.id.result_info);
-
-        main_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (user_field.getText().toString().trim().equals("")) {
-                    Toast.makeText(SearchActivity.this, R.string.no_user_input, Toast.LENGTH_LONG).show();
-                } else {
-                    String city = user_field.getText().toString();
-                    String key = "2e4a2a95e9810de9669c244ff818b5ad";
-                    String url = String.format("https://api.openweathermap.org/data/2.5/weather?q=%s&appid=%s&units=metric&lang=ru",
-                            city,
-                            key);
-                    new GetUrlData().execute(url);
-                    dbHelper.createTable("cities");
-                    dbHelper.insert(city);
-                    dbHelper.close();
-                }
-            }
-        });
+        Intent intent = getIntent();
+        String url = intent.getStringExtra("url");
+        new GetUrlData().execute(url);
     }
 
     private class GetUrlData extends AsyncTask<String, String, String> {
@@ -111,32 +85,6 @@ public class SearchActivity extends AppCompatActivity {
                     root.getWeather().get(0).getDescription(),
                     root.getMain().getTemp(),
                     root.getWind().getSpeed()));
-        }
-    }
-
-    public class DBHelper {
-        private SQLiteDatabase db;
-        private String tableName;
-
-        public void createDataBase (String dataBaseName) {
-            db = getBaseContext().openOrCreateDatabase(dataBaseName, MODE_PRIVATE, null);
-        }
-
-        public void createTable (String tableName) {
-            this.tableName = tableName;
-            db.execSQL(String.format("CREATE TABLE IF NOT EXISTS %s (city varchar(50))", tableName));
-        }
-
-        public void insert (String value) {
-            db.execSQL(String.format("INSERT OR IGNORE INTO %s VALUES ('%s');", this.tableName, value));
-        }
-
-        public void close () {
-            db.close();
-        }
-
-        public SQLiteDatabase getDb() {
-            return db;
         }
     }
 }
